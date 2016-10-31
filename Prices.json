@@ -6,114 +6,114 @@
             {
                 "id": 1,
                 "Type": "V-Neck",
-                "Price": 330
+                "Price": 350
             },
             {
                 "id": 2,
                 "Type": "U neck",
-                "Price": 330
+                "Price": 350
             },
             {
                 "id": 3,
                 "Type": "Square neck",
-                "Price": 330
+                "Price": 350
             },
             {
                 "id": 1,
                 "Type": "Rectangle neck",
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Diamond Neck",
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Scalloped neck",
-                "Price": 550
+                "Price": 499
             },
             {
                 "Type": "Horseshoe neck",
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Square with criss-cross neck",
-                "Price": 550
+                "Price": 499
             },
             {
                 "Type": "Crew neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Boat neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Spaghetti - Square neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Spaghetti - U neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Nehru Collar",
                 "id": 1,
-                "Price": 599
+                "Price": 499
             },
             {
                 "Type": "Collar with Deep V-neck",
                 "id": 1,
-                "Price": 599
+                "Price": 499
             },
             {
                 "Type": "Classic Shirt Collar",
                 "id": 1,
-                "Price": 599
+                "Price": 499
             },
             {
                 "Type": "Peter Pan Collar",
                 "id": 1,
-                "Price": 599
+                "Price": 499
             },
             {
                 "Type": "High Collar",
                 "id": 1,
-                "Price": 599
+                "Price": 499
             },
             {
                 "Type": "Stand-up Collar with Sweetheart neck",
                 "id": 1,
-                "Price": 599
+                "Price": 499
             },
             {
                 "Type": "Deep Sweetheart neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "High collar halter neck",
                 "id": 1,
-                "Price": 550
+                "Price": 499
             },
             {
                 "Type": "Halter neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             },
             {
                 "Type": "Round with V-neck",
                 "id": 1,
-                "Price": 330
+                "Price": 350
             }
         ],
         "Addons": [
             {
                 "Type": "Pre-washed Cotton",
-                "Price": 75
+                "Price": 60
             },
             {
                 "Type": "Front with Hooks",
@@ -145,7 +145,7 @@
             },
             {
                 "Type": "Prince Cut",
-                "Price": 150
+                "Price": 100
             }
         ]
     },
@@ -156,122 +156,122 @@
             {
                 "id": 1,
                 "Type": "V-Neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "U neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Square neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Rectangle neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Diamond Neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Scalloped neck",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Horseshoe neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Square with criss-cross neck",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Crew neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Boat neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Spaghetti - Square neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Spaghetti - U neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Nehru Collar",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Collar with Deep V-neck",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Classic Shirt Collar",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Peter Pan Collar",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "High Collar",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Stand-up Collar with Sweetheart neck",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Deep Sweetheart neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "High collar halter neck",
-                "Price": 499
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Halter neck",
-                "Price": 299
+                "Price": 399
             },
             {
                 "id": 1,
                 "Type": "Round with V-neck",
-                "Price": 299
+                "Price": 399
             }
         ],
         "Addons": [
             {
                 "Type": "Pre-washed Cotton",
-                "Price": 150
+                "Price": 100
             },
             {
                 "Type": "Back with Zip",
-                "Price": 299
+                "Price": 25
             },
             {
                 "Type": "Quarter Length",
@@ -310,27 +310,27 @@
             {
                 "id": 1,
                 "Type": "Churidar",
-                "Price": 299
+                "Price": 349
             },
             {
                 "id": 1,
                 "Type": "Salwar",
-                "Price": 299
+                "Price": 349
             },
             {
                 "id": 1,
                 "Type": "Patiala",
-                "Price": 299
+                "Price": 349
             },
             {
                 "id": 1,
                 "Type": "Pant",
-                "Price": 299
+                "Price": 349
             },
             {
                 "id": 1,
                 "Type": "Plain Plazo",
-                "Price": 299
+                "Price": 349
             }
         ],
         "Addons": [
@@ -355,27 +355,27 @@
             {
                 "id": 1,
                 "Type": "V-Neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "U neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Square neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Rectangle neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Diamond Neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
@@ -385,7 +385,7 @@
             {
                 "id": 1,
                 "Type": "Horseshoe neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
@@ -395,22 +395,22 @@
             {
                 "id": 1,
                 "Type": "Crew neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Boat neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Spaghetti - Square neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Spaghetti - U neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
@@ -445,7 +445,7 @@
             {
                 "id": 1,
                 "Type": "Deep Sweetheart neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
@@ -455,22 +455,22 @@
             {
                 "id": 1,
                 "Type": "Halter neck",
-                "Price": 299
+                "Price": 499
             },
             {
                 "id": 1,
                 "Type": "Round with V-neck",
-                "Price": 299
+                "Price": 499
             }
         ],
         "Addons": [
             {
                 "Type": "Pre-washed Cotton-Bottom Lining",
-                "Price": 150
+                "Price": 100
             },
              {
                 "Type": "Pre-washed Cotton-Top Lining",
-                "Price": 150
+                "Price": 100
             },
              {
                 "Type": "Waist with Elastic",
