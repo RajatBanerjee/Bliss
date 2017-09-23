@@ -509,7 +509,7 @@
         "Addons": [
             {
                 "Type": "Cotton Lining",
-                "Price": 100,
+                "Price": 120,
                 "image": "EXT3.png"
             },
             {
@@ -818,7 +818,7 @@
             },
             {
                 "Type": "Cotton Lining",
-                "Price": 100,
+                "Price": 120,
                 "image": "EXT5.png"
             }
         ]
@@ -963,12 +963,12 @@
         "Addons": [
             {
                 "Type": "Cotton Lining-Bottom Lining",
-                "Price": 100,
+                "Price": 120,
                 "image": "EXT5.png"
             },
             {
                 "Type": "Cotton Lining-Top Lining",
-                "Price": 100,
+                "Price": 120,
                 "image": "EXT3.png"
             },
             {
