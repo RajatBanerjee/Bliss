@@ -11,7 +11,7 @@ module.exports = {
         });
 
         var html = "<p style='color:orange'>Greetings "+UserDetails.Name+"</p><br/>"
-                    +"Congratulation YOUR order has been placed"
+                    +"Congratulation YOUR order has been placed.Our Team will contact you to confirm the pick up schedule/Appointment"
                     +"<br/><div>"
                     +"<b>Order Details: </b>"
                     +"<table style='width: 100%;max-width: 100%;margin-bottom: 20px;background-color: transparent;  border-color: grey;>"
