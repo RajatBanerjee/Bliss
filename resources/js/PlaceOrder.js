@@ -4,13 +4,13 @@ $(document).ready(function () {
 
 function InitApp() {
 	InitFireBase();
-	PrepareOrderDetails();
+	
 	SetupHandlers();
 }
 
 function PrepareOrderDetails() {
 	var index = 1;
-
+	$("#orderDetails").html("")
 	if (ItemType.id && ItemType.id !== "") {
 		$.each(ItemData, function (itemType) {
 			if (itemType === "extra") {
@@ -94,6 +94,7 @@ function ShowConfirmationModal() {
 }
 
 function Getprice() {
+	PrepareOrderDetails();
 	var subItem = ItemData[1].SubItemValue;
 	var ItemId = ItemType.id;
 	$.post("/GetPrice/" + ItemId + "/" + subItem, { extra: ItemData["extra"] })
