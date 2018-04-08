@@ -1,10 +1,10 @@
 {
   "name": "testapp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "server.js",
   "engines": {
-    "node": "4.4.7"
+    "node": "8.9.4"
   },
   "scripts": {
     "start": "node server.js"
