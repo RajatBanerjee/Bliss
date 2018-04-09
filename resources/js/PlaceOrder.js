@@ -10,7 +10,8 @@ function InitApp() {
 
 function PrepareOrderDetails() {
 	var index = 1;
-	$("#orderDetails").html("")
+	
+
 	if (ItemType.id && ItemType.id !== "") {
 		$.each(ItemData, function (itemType) {
 			if (itemType === "extra") {
@@ -94,14 +95,15 @@ function ShowConfirmationModal() {
 }
 
 function Getprice() {
-	PrepareOrderDetails();
 	var subItem = ItemData[1].SubItemValue;
 	var ItemId = ItemType.id;
 	$.post("/GetPrice/" + ItemId + "/" + subItem, { extra: ItemData["extra"] })
 		.done(function (data) {
+			$("#orderDetails").html("<tbody><tr><th>#</th><th>Item Type</th><th>Item</th><th>price</th><th>Total</th></tr></tbody>");
+			PrepareOrderDetails();
 			window.PriceDetails = data;
-			$("#orderDetails tr:nth-child(2) td:nth-child(4)").append("<td class='Orderprice'>" + data.ItemPrice + "</td>");
-			$("#orderDetails").append("<tr><td></td><td></td><td></td><td></td><td class='Orderprice'>" + data.TotalPrice + "</td></tr>");
+			$("#orderDetails tr:nth-child(2) td:nth-child(4)").html("<td class='Orderprice'>" + data.ItemPrice + "</td>");
+			$("#orderDetails").append("<tr class='totalPrice'><td></td><td></td><td></td><td></td><td class='Orderprice'>" + data.TotalPrice + "</td></tr>");
 
 			$.each(data.extra, function () {
 				$("#orderDetails tr:contains('" + this.SubItemValue + "')").find("td:nth-child(4)").addClass("Orderprice").text(this.Price);
@@ -137,7 +139,7 @@ function InitFireBase() {
 
 	// Google OAuth Client ID, needed to support One-tap sign-up.
 	// Set to null if One-tap sign-up is not supported.
-	window.CLIENT_ID = 'YOUR_OAUTH_CLIENT_ID';
+	window.CLIENT_ID = "YOUR_OAUTH_CLIENT_ID";
 
 	// Initialize the FirebaseUI Widget using Firebase.
 	window.ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -198,20 +200,6 @@ function handleSignedOutUser() {
 
 function getUiConfig() {
 	return {
-		"callbacks": {
-			// Called when the user has been successfully signed in.
-			"signInSuccessWithAuthResult": function (authResult, redirectUrl) {
-				if (authResult.user) {
-					handleSignedInUser(authResult.user);
-				}
-				if (authResult.additionalUserInfo) {
-					document.getElementById("is-new-user").textContent =
-						authResult.additionalUserInfo.isNewUser ? "New User" : "Existing User";
-				}
-				// Do not redirect.
-				return false;
-			}
-		},
 		// Opens IDP Providers sign-in flow in a popup.
 		"signInFlow": "popup",
 		"signInOptions": [
