@@ -152,6 +152,10 @@ function InitFireBase() {
 		document.getElementById("loaded").style.display = "block";
 		user ? handleSignedInUser(user) : handleSignedOutUser();
 	});
+
+	document.getElementById('sign-out').addEventListener('click', function () {
+		firebase.auth().signOut();
+  });
 }
 
 /**
@@ -254,14 +258,12 @@ function getUiConfig() {
 /**
  * Initializes the app.
  */
-// function initApp() {
-//     document.getElementById('sign-out').addEventListener('click', function () {
-//         firebase.auth().signOut();
-//     });
-//     document.getElementById('delete-account').addEventListener(
-//         'click', function () {
-//             deleteAccount();
-//         });
-// };
+ function initApp() {
+
+// //     document.getElementById('delete-account').addEventListener(
+// //         'click', function () {
+// //             deleteAccount();
+// //         });
+ };
 
 //# sourceURL=PlaceOrder.js
