@@ -37,7 +37,7 @@ function SetupHandlers() {
 		// alert("Handler for .submit() called.");
 		e.preventDefault();
 		var UserDetails = {
-			Name: $("#prder-name").val(),
+			Name: $("#order-name").val(),
 			Email: $("#order-email").val(),
 			Phone: $("#order-phone").val(),
 			Address: $("#order-address").val(),
