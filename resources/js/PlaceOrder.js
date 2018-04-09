@@ -200,6 +200,7 @@ function handleSignedOutUser() {
 
 function getUiConfig() {
 	return {
+
 		// Opens IDP Providers sign-in flow in a popup.
 		"signInFlow": "popup",
 		"signInOptions": [
@@ -211,15 +212,16 @@ function getUiConfig() {
 				// Required to enable ID token credentials for this provider.
 				clientId: CLIENT_ID
 			},
-			// {
-			//   provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-			//   scopes :[
-			//     'public_profile',
-			//     'email',
-			//     'user_likes',
-			//     'user_friends'
-			//   ]
-			// }
+			{
+				provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+				scopes :[
+					"public_profile",
+					"email",
+					"user_likes",
+					"user_friends"
+				]
+			},
+
 		],
 		// Terms of service url.
 		"tosUrl": "https://www.google.com",
