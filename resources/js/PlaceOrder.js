@@ -37,13 +37,13 @@ function SetupHandlers() {
 		// alert("Handler for .submit() called.");
 		e.preventDefault();
 		var UserDetails = {
-			Name: $("#name").val(),
-			Email: $("#email").val(),
-			Phone: $("#phone").val(),
-			Address: $("#address").val(),
-			Pincode: $("#pincode").val(),
-			Pickup: $("#pickup").val(),
-			Message: $("#message").val()
+			Name: $("#prder-name").val(),
+			Email: $("#order-email").val(),
+			Phone: $("#order-phone").val(),
+			Address: $("#order-address").val(),
+			Pincode: $("#order-pincode").val(),
+			Pickup: $("#order-pickup").val(),
+			Message: $("#order-message").val()
 		};
 		PlaceOrder(UserDetails);
 	});
