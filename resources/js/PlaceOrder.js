@@ -1,12 +1,6 @@
 $(document).ready(function () {
-	InitApp();
-});
-
-function InitApp() {
-	InitFireBase();
-	
 	SetupHandlers();
-}
+});
 
 function PrepareOrderDetails() {
 	var index = 1;
@@ -235,6 +229,7 @@ function getUiConfig() {
 	};
 }
 
+window.addEventListener('load', InitFireBase);
 /**
 /**
  * Deletes the user's account.
