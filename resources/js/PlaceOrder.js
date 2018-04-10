@@ -1,10 +1,22 @@
 $(document).ready(function () {
 	SetupHandlers();
+	var counter = 0;
+	var x = setInterval(function () {
+		if (firebase) {
+			clearInterval(x);
+			InitFireBase();
+		} else if (counter >= 10) {
+			clearInterval(x);
+		}
+		else {
+			counter++;
+		}
+	}, 100)
 });
 
 function PrepareOrderDetails() {
 	var index = 1;
-	
+
 
 	if (ItemType.id && ItemType.id !== "") {
 		$.each(ItemData, function (itemType) {
@@ -147,9 +159,9 @@ function InitFireBase() {
 		user ? handleSignedInUser(user) : handleSignedOutUser();
 	});
 
-	document.getElementById('sign-out').addEventListener('click', function () {
+	document.getElementById("sign-out").addEventListener("click", function () {
 		firebase.auth().signOut();
-  });
+	});
 }
 
 /**
@@ -212,7 +224,7 @@ function getUiConfig() {
 			},
 			{
 				provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-				scopes :[
+				scopes: [
 					"public_profile",
 					"email",
 					"user_likes",
@@ -229,7 +241,7 @@ function getUiConfig() {
 	};
 }
 
-window.addEventListener('load', InitFireBase);
+// window.addEventListener('load', InitFireBase);
 /**
 /**
  * Deletes the user's account.
@@ -253,12 +265,12 @@ window.addEventListener('load', InitFireBase);
 /**
  * Initializes the app.
  */
- function initApp() {
+function initApp() {
 
-// //     document.getElementById('delete-account').addEventListener(
-// //         'click', function () {
-// //             deleteAccount();
-// //         });
- };
+	// //     document.getElementById('delete-account').addEventListener(
+	// //         'click', function () {
+	// //             deleteAccount();
+	// //         });
+}
 
 //# sourceURL=PlaceOrder.js
