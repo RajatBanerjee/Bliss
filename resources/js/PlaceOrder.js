@@ -2,7 +2,7 @@ $(document).ready(function () {
 	SetupHandlers();
 	var counter = 0;
 	var x = setInterval(function () {
-		if (firebase) {
+		if (typeof(firebase)!='undefined') {
 			clearInterval(x);
 			InitFireBase();
 		} else if (counter >= 10) {
@@ -173,12 +173,8 @@ function handleSignedInUser(user) {
 	document.getElementById("user-signed-out").style.display = "none";
 	document.getElementById("name").textContent = user.displayName;
 	document.getElementById("email").textContent = user.email;
-	document.getElementById("phone").textContent = user.phoneNumber;
 	if (user.photoURL) {
 		var photoURL = user.photoURL;
-		// Append size to the photo URL for Google hosted images to avoid requesting
-		// the image with its original resolution (using more bandwidth than needed)
-		// when it is going to be presented in smaller size.
 		if ((photoURL.indexOf("googleusercontent.com") != -1) ||
 			(photoURL.indexOf("ggpht.com") != -1)) {
 			photoURL = photoURL + "?sz=" +
@@ -222,15 +218,20 @@ function getUiConfig() {
 				// Required to enable ID token credentials for this provider.
 				clientId: CLIENT_ID
 			},
+			// {
+			// 	provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+			// 	scopes: [
+			// 		"public_profile",
+			// 		"email",
+			// 		"user_likes",
+			// 		"user_friends"
+			// 	]
+			// },      
 			{
-				provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-				scopes: [
-					"public_profile",
-					"email",
-					"user_likes",
-					"user_friends"
-				]
-			},
+				provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+				// Whether the display name should be displayed in Sign Up page.
+				requireDisplayName: true
+			  }
 
 		],
 		// Terms of service url.
