@@ -1,4 +1,6 @@
 jQuery(function ($) {
+
+	$("#user-signed-in").hide()
 	window.ItemData = window.sessionStorage.ItemData? JSON.parse(window.sessionStorage.ItemData) : { extra: [] };
 	window.ItemType = window.sessionStorage.ItemType ? JSON.parse(window.sessionStorage.ItemType) :{ id: "", ItemTypeText: "" };
 

@@ -1404,3 +1404,6 @@ a:hover{
 #itemContainer{
     margin-bottom: 200px;
 }
+.hidden-fire {
+    display: none;
+  }
