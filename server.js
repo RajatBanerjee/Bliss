@@ -10,7 +10,7 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var router = require("./src/server/routes");
 app.use(compression())
-app.use("/resources/", express.static(path.join(__dirname + "/resources/"))); // set the static files location /public/img will be /img for users
+app.use("/public", express.static(path.join(__dirname + "/public"))); // set the static files location /public/img will be /img for users
 app.use(morgan("dev")); // log every request to the console
 app.use(bodyParser.urlencoded({
 	"extended": "true"
