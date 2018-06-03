@@ -2,16 +2,30 @@ $(document).ready(function () {
 	SetupHandlers();
 	var counter = 0;
 	var x = setInterval(function () {
-		if (typeof(firebase)!='undefined') {
+		if (typeof (firebase) != "undefined") {
 			clearInterval(x);
 			InitFireBase();
 		} else if (counter >= 10) {
 			clearInterval(x);
-		}
-		else {
+		} else {
 			counter++;
 		}
 	}, 100)
+
+
+	$.getScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js", function(){
+		$.getScript("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js", function () {
+			$("#datetimepicker").datetimepicker({
+				sideBySide:true,
+				enabledHours:[11,12,13,14,15,16,17,18]
+			});
+		});
+	});
+
+	
+
+		
+	
 });
 
 function PrepareOrderDetails() {
@@ -37,8 +51,8 @@ function PrepareOrderDetails() {
 
 function SetupHandlers() {
 	/**
-      * Place order submit
-      */
+	 * Place order submit
+	 */
 	$("#contactForm").submit(function (e) {
 		// alert("Handler for .submit() called.");
 		e.preventDefault();
@@ -48,15 +62,15 @@ function SetupHandlers() {
 			Phone: $("#order-phone").val(),
 			Address: $("#order-address").val(),
 			Pincode: $("#order-pincode").val(),
-			Pickup: $("#order-pickup").val(),
+			Pickup: $("#datetimepicker").data("DateTimePicker").viewDate()._i,
 			Message: $("#order-message").val()
 		};
 		PlaceOrder(UserDetails);
 	});
 
 	/**
-     * terms and condition checked
-     */
+	 * terms and condition checked
+	 */
 	$("#termsCheck").change(function () {
 		if (document.getElementById("termsCheck").checked === true) {
 			document.getElementById("submitForm").disabled = false;
@@ -65,8 +79,13 @@ function SetupHandlers() {
 		}
 	});
 }
+
 function PlaceOrder(UserDetails) {
-	$.post("/PlaceOrder", { Order: ItemData, UserDetails: UserDetails, PriceDetails: window.PriceDetails })
+	$.post("/PlaceOrder", {
+		Order: ItemData,
+		UserDetails: UserDetails,
+		PriceDetails: window.PriceDetails
+	})
 		.done(function () {
 			/**remove the local storage having order details */
 			sessionStorage.removeItem("ItemData")
@@ -81,29 +100,34 @@ function PlaceOrder(UserDetails) {
 
 function ShowConfirmationModal() {
 
-	var x = "<div class=\"modal fade\" data-backdrop=\"static\"  data-keyboard=\"false\"  id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">"
-		+ "<div class=\"modal-dialog\" role=\"document\">"
-		+ " <div class=\"modal-content\">"
-		+ "  <div class=\"modal-header\">"
-		+ "   <button type=\"button\" class=\"close\"  onClick=\"redirectToHomePage()\"><span aria-hidden=\"true\">&times;</span></button>"
-		+ "</div>"
-		+ "<div class=\"modal-body\">"
-		+ "<h4 class=\"modal-title\" id=\"exampleModalLabel\">Congratulations! your order is Placed.</h4>"
-		+ "</div>"
-		+ "<div class=\"modal-footer\">"
-		+ "<button type=\"button\" class=\"btn btn-primary\" onClick=\"redirectToHomePage()\">Okay</button>"
-		+ "</div>"
-		+ "</div>"
-		+ "</div>"
-		+ "</div>";
+	var x = "<div class=\"modal fade\" data-backdrop=\"static\"  data-keyboard=\"false\"  id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">" +
+		"<div class=\"modal-dialog\" role=\"document\">" +
+		" <div class=\"modal-content\">" +
+		"  <div class=\"modal-header\">" +
+		"   <button type=\"button\" class=\"close\"  onClick=\"redirectToHomePage()\"><span aria-hidden=\"true\">&times;</span></button>" +
+		"</div>" +
+		"<div class=\"modal-body\">" +
+		"<h4 class=\"modal-title\" id=\"exampleModalLabel\">Congratulations! your order is Placed.</h4>" +
+		"</div>" +
+		"<div class=\"modal-footer\">" +
+		"<button type=\"button\" class=\"btn btn-primary\" onClick=\"redirectToHomePage()\">Okay</button>" +
+		"</div>" +
+		"</div>" +
+		"</div>" +
+		"</div>";
 
 	$(x).modal();
 }
 
+function redirectToHomePage(){
+	location.href ="/"
+}
 function Getprice() {
 	var subItem = ItemData[1].SubItemValue;
 	var ItemId = ItemType.id;
-	$.post("/GetPrice/" + ItemId + "/" + subItem, { extra: ItemData["extra"] })
+	$.post("/GetPrice/" + ItemId + "/" + subItem, {
+		extra: ItemData["extra"]
+	})
 		.done(function (data) {
 			$("#orderDetails").html("<tbody><tr><th>#</th><th>Item Type</th><th>Item</th><th>price</th><th>Total</th></tr></tbody>");
 			PrepareOrderDetails();
@@ -162,6 +186,8 @@ function InitFireBase() {
 	document.getElementById("sign-out").addEventListener("click", function () {
 		firebase.auth().signOut();
 	});
+
+	handleSignInSignUp();
 }
 
 /**
@@ -173,18 +199,20 @@ function handleSignedInUser(user) {
 	document.getElementById("user-signed-out").style.display = "none";
 	document.getElementById("name").textContent = user.displayName;
 	document.getElementById("email").textContent = user.email;
-	if (user.photoURL) {
-		var photoURL = user.photoURL;
-		if ((photoURL.indexOf("googleusercontent.com") != -1) ||
-			(photoURL.indexOf("ggpht.com") != -1)) {
-			photoURL = photoURL + "?sz=" +
-				document.getElementById("photo").clientHeight;
-		}
-		document.getElementById("photo").src = photoURL;
-		document.getElementById("photo").style.display = "block";
-	} else {
-		document.getElementById("photo").style.display = "none";
+	var photoURL = user.photoURL;
+
+	if (!photoURL) {
+		photoURL = "/resources/images/no-avatar-200x200.jpg"
 	}
+
+	if ((photoURL.indexOf("googleusercontent.com") != -1) ||
+		(photoURL.indexOf("ggpht.com") != -1)) {
+		photoURL = photoURL + "?sz=" +
+			document.getElementById("photo").clientHeight;
+	}
+	document.getElementById("photo").src = photoURL;
+	document.getElementById("photo").style.display = "block";
+
 
 	if (ItemType.id && ItemType.id !== "") {
 		$("#placeOrder").show();
@@ -194,6 +222,69 @@ function handleSignedInUser(user) {
 }
 
 
+function handleSignInSignUp() {
+	$(".new-account").click(function () {
+		$(".form-signin").hide();
+		$(".form-signup").removeClass("hidden").show();
+	});
+
+	$(".account-signin").click(function () {
+		$(".form-signin").show();
+		$(".form-signup").hide();
+	});
+
+	$(".form-signin").submit(function (e) {
+		e.preventDefault()
+		var email = $("#signin-email").val();
+		var password = $("#signin-password").val();
+
+		// Sign in with email and pass.
+		// [START authwithemail]
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// [START_EXCLUDE]
+			if (errorCode === "auth/wrong-password") {
+				alert("Wrong password.");
+			} else {
+				alert(errorMessage);
+			}
+			console.log(error);
+			// [END_EXCLUDE]
+		});
+	});
+
+	$(".form-signup").submit(function (e) {
+		e.preventDefault()
+		var email = $("#signup-email").val();
+		var password = $("#signup-password").val();
+		if (email.length < 4) {
+			alert("Please enter an email address.");
+			return;
+		}
+		if (password.length < 4) {
+			alert("Please enter a password.");
+			return;
+		}
+		// Sign in with email and pass.
+		// [START createwithemail]
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// [START_EXCLUDE]
+			if (errorCode == "auth/weak-password") {
+				alert("The password is too weak.");
+			} else {
+				alert(errorMessage);
+			}
+			console.log(error);
+			// [END_EXCLUDE]
+		});
+	});
+
+}
 /**
  * Displays the UI for a signed out user.
  */
@@ -226,19 +317,12 @@ function getUiConfig() {
 			// 		"user_likes",
 			// 		"user_friends"
 			// 	]
-			// },      
-			{
-				provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-				// Whether the display name should be displayed in Sign Up page.
-				requireDisplayName: true
-			  }
-
+			// },
 		],
 		// Terms of service url.
 		"tosUrl": "https://www.google.com",
 		"credentialHelper": CLIENT_ID && CLIENT_ID != "YOUR_OAUTH_CLIENT_ID" ?
-			firebaseui.auth.CredentialHelper.GOOGLE_YOLO :
-			firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+			firebaseui.auth.CredentialHelper.GOOGLE_YOLO : firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 	};
 }
 
@@ -263,15 +347,6 @@ function getUiConfig() {
 // };
 
 
-/**
- * Initializes the app.
- */
-function initApp() {
 
-	// //     document.getElementById('delete-account').addEventListener(
-	// //         'click', function () {
-	// //             deleteAccount();
-	// //         });
-}
 
 //# sourceURL=PlaceOrder.js
