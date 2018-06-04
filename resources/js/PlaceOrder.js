@@ -62,7 +62,7 @@ function SetupHandlers() {
 			Phone: $("#order-phone").val(),
 			Address: $("#order-address").val(),
 			Pincode: $("#order-pincode").val(),
-			Pickup: $("#datetimepicker").data("DateTimePicker").viewDate()._i,
+			Pickup: $("#datetimepicker").data("DateTimePicker").viewDate()._d.toString(),
 			Message: $("#order-message").val()
 		};
 		PlaceOrder(UserDetails);
