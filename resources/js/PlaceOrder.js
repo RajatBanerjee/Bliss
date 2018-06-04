@@ -224,13 +224,18 @@ function handleSignedInUser(user) {
 
 function handleSignInSignUp() {
 	$(".new-account").click(function () {
-		$(".form-signin").hide();
-		$(".form-signup").removeClass("hidden").show();
+		$(".form-signin").fadeOut(100,function(){
+			$(".form-signup").removeClass("hidden").fadeIn('slow');
+		});
+		
 	});
 
 	$(".account-signin").click(function () {
-		$(".form-signin").show();
-		$(".form-signup").hide();
+		$(".form-signup").fadeOut(100,function(){
+			$(".form-signin").fadeIn('slow');
+		});
+		
+		
 	});
 
 	$(".form-signin").submit(function (e) {

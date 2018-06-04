@@ -1429,18 +1429,14 @@ a:hover{
 {
     z-index: 2;
 }
-.form-signin .form-control input[type="email"],.form-signup .form-control input[type="text"]
+
+input.form-control
 {
-    margin-bottom: -1px;
+    margin-bottom: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-.form-signin .form-control input[type="password"],.form-signup .form-control input[type="password"]
-{
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
+
 .account-wall
 {
     padding: 10px 10px 20px 10px;
