@@ -15,9 +15,13 @@ $(document).ready(function () {
 
 	$.getScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js", function(){
 		$.getScript("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js", function () {
+			var dateToday = new Date();
+			dateToday.setDate(dateToday.getDate()+3);
+		
 			$("#datetimepicker").datetimepicker({
 				sideBySide:true,
-				enabledHours:[11,12,13,14,15,16,17,18]
+				enabledHours:[11,12,13,14,15,16,17,18],
+				minDate: dateToday
 			});
 		});
 	});
