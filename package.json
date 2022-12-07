@@ -33,6 +33,6 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "gulp": "^3.9.1",
-    "gulp-livereload": "^3.8.1"
+    "gulp-livereload": "^4.0.2"
   }
 }
